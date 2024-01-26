@@ -1,0 +1,35 @@
+
+.main-container {
+    border: 5px solid black;
+    height: 50%;
+    width: 50%;
+    margin: 0 auto; 
+}
+
+.first-row, .second-row, .third-row {
+    /* border: 2px solid green; */
+    height: 23vh;
+    margin: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.first-row, .second-row {
+    border-bottom: 5px solid black;
+}
+
+.\32, .\35, .\38 {
+    /* padding: 0 15px 0 15px; */
+    border-right: 5px solid black;
+    border-left: 5px solid black;
+    /* height: 1vh;  */
+}
+
+.box {
+    /* border: 2px solid red; */
+    /* height: 50%; */
+    width: 75%;
+    font-size: 70px;
+    text-align: center;
+    
+}
