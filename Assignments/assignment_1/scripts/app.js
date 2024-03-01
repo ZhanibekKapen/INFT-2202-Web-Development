@@ -1,6 +1,6 @@
 // Name: Zhanibek Kapen
 // StudentID: 100861891
-// Date: 2024-02-07
+// Date: 2024-02-27
 
 // Home Page
 // Image
@@ -123,14 +123,103 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("form").addEventListener("submit", function(event) {
-        event.preventDefault(); 
-        
-        var inputName = document.getElementById("nameInput").value;
-        var inputEmail = document.getElementById("emailInput").value;
-        var inputMessage = document.getElementById("messageInput").value;
+    if (document.getElementById("form")) {
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+            
+            var inputName = document.getElementById("nameInput").value;
+            var inputEmail = document.getElementById("emailInput").value;
+            var inputMessage = document.getElementById("messageInput").value;
 
-        console.log("User's Name: "+ inputName + " User's Email:" + inputEmail + " User's Message: " + inputMessage);
-        setTimeout(function() {window.location.href = "index.html";}, 3000); 
+            console.log("User's Name: "+ inputName + " User's Email:" + inputEmail + " User's Message: " + inputMessage);
+            setTimeout(function() {window.location.href = "index.html";}, 3000); 
+        })
+    }
+})
+
+// Lab 2 Start
+$(document).ready(function() {
+    $('#login-form').submit(function(event) {
+        event.preventDefault();     
+
+        var username = $('#username').val();
+
+        var usernameLI = $('<span class="navbar-text">' + username + '</span>');
+
+        console.log(" User" + username)
+
+        $('.navbar-nav').find('#login-navbar').before(usernameLI);
+    });
+});
+
+$(document).ready(function(){
+    $('#ErrorMessage').hide();
+
+    // User Class
+    class User {
+        constructor(firstName, lastName, email, password) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.email = email;
+            this.password = password;
+        }
+    }
+    /**
+     * Function to display error message
+     * @param {*} message Error text that will be display 
+     */
+    function displayErrorMessage(message) {
+        $('#ErrorMessage').text(message).show();
+    }
+    
+    $('#register-form').submit(function(event){
+        event.preventDefault();
+
+        // Validation 
+        // First Name
+        var firstName = $('#firstName').val().trim();
+        if (!(firstName.length >= 2)) {
+            displayErrorMessage("Error: First Name must have at least 2 characters.");
+            return;
+        }
+
+        // Last Name
+        var lastName = $('#lastName').val().trim();
+        if (!(lastName.length >= 2)) {
+        displayErrorMessage("Error: Last name must have at least 2 characters.");
+        return;
+        }
+
+        // Email
+        var email = $('#email').val().trim();
+        if (!(email.length >= 8 && email.includes( "@"))) {
+        displayErrorMessage("Error: Email must have at least 8 characters and contain '@'.");
+        return;
+        }
+
+        // Password
+        var password = $('#password').val();
+        var confirmPassword = $('#password2').val();
+        if (!(password.length >= 6)) {
+        displayErrorMessage("Error: Password must have at least 6 characters .");
+        return;
+        }
+
+        // Confirm Password
+        if (password !== confirmPassword) {
+            displayErrorMessage("Error: Passwords must be same.");
+            return;
+        }
+
+        // New User 
+        var registeredUser = new User(firstName, lastName, email, password);
+
+        // Display the user object in console
+        console.log(registeredUser);
+
+        // Clear the form
+        $('#register-form')[0].reset();
+        
+        $('#ErrorMessage').hide();
     })
 })

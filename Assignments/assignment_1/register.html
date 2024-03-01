@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css"> -->
-  <title>LAB 1</title>
+  <title>LAB 2</title>
 </head>
 <body class="containerBody">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -31,23 +32,53 @@
         <li class="nav-item">
             <a class="nav-link " href="./about.html"> About Us <i class="fas fa-heart"></i></a>
           </li>
-        <li class="nav-item">
+          <li class="nav-item">
             <a class="nav-link " href="./contact.html"> Contact Us <i class="fas fa-phone"></i></a>
         </li>    
         <li class="nav-item">
-          <a class="nav-link " href="./login.html"> Login <i class="fas fa-sign-in-alt"></i></a>
+            <a class="nav-link " href="./login.html"> Login <i class="fas fa-sign-in-alt"></i></a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link " href="./register.html"> Register <i class="fas fa-user-plus"></i></a>
-      </li>    
+            <a class="nav-link " href="./register.html"> Register <i class="fas fa-user-plus"></i></a>
+        </li>    
       </ul>
     </div>
   </nav>
+  <div id="ErrorMessage"></div>
   <!-- Image Container -->
-  <div class="containerLine">
-    <div class ="containerImage" id="helloImage" ></div>
-    <div class="containerHello" id="hello"></div>
-  <div>
+   <div class = "containerLogin">
+    <form class="containerForm" id="register-form">
+      <h2 class = "cenetered-h2">Register</h2>
+      <hr/>
+      <div class="form-group">
+      <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+          </div>
+      </div>
+      </div>
+      <div class="form-group">
+      <input type="email" class="form-control " id="email" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <!-- <label for="exampleInputEmail1">Password</label> -->
+        <input type="password" class="form-control " id="password" placeholder="Password">
+      </div>
+      <div class="form-group">
+        <!-- </i><label for="exampleInputPassword1">Confirm Password</label> -->
+        <input type="password" class="form-control " id="password2" placeholder="Confirm Password">
+      </div>
+      <div class = "submit-btn">
+          <button type="submit" class="btn btn-primary ">Submit</button>
+      </div>
+
+    </form>
+    </div>
+    <!-- Footer  -->
+    </form>
     <nav class=" fixed-bottom navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand finalNavBar" href="#"> &copy; CopyRight 2024</a>
